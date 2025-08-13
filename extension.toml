@@ -1,0 +1,8 @@
+id = "gitignore-templates"
+name = "Gitignore Templates"
+version = "2025.08.0"
+schema_version = 1
+authors = ["Mahmud Ridwan <m@hjr265.me>"]
+description = "Provides snippets of .gitignore templates from https://github.com/github/gitignore."
+repository = "https://github.com/hjr265/zed-gitignore-templates"
+snippets = "./snippets/git ignore.json"
