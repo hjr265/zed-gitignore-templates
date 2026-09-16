@@ -40,7 +40,7 @@ for file in "$DIR_NAME"/*.gitignore; do
     if [ -f "$file" ]; then
         FILENAME=$(basename "$file")
         CONTENTS=$(<"$file")
-        BODY=$(echo "$CONTENTS" | jq -Rs .)
+        BODY=$(echo "$CONTENTS" | jq -Rs 'gsub("(?<c>[\\\\$])"; "\\\(.c)")') # Escape \ and $ for snippet syntax
         echo "  \"Use $FILENAME\": {\"prefix\": \"$FILENAME\", \"body\": [$BODY, \"\$0\"]}," >> "$TEMP_FILE"
     fi
 done
