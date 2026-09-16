@@ -40,8 +40,8 @@ for file in "$DIR_NAME"/*.gitignore; do
     if [ -f "$file" ]; then
         FILENAME=$(basename "$file")
         CONTENTS=$(<"$file")
-        BODY=$(echo "$CONTENTS" | jq -Rs 'gsub("(?<c>[\\\\$])"; "\\\(.c)")') # Escape \ and $ for snippet syntax
-        echo "  \"Use $FILENAME\": {\"prefix\": \"$FILENAME\", \"body\": [$BODY, \"\$0\"]}," >> "$TEMP_FILE"
+        BODY=$(echo "$CONTENTS" | jq -Rs 'gsub("(?<c>[\\\\$])"; "\\\(.c)") | split("\n") + ["$0"]') # Escape \ and $ for snippet syntax, one entry per line
+        echo "  \"Use $FILENAME\": {\"prefix\": \"$FILENAME\", \"body\": $BODY}," >> "$TEMP_FILE"
     fi
 done
 sed -i '$ s/,$//' "$TEMP_FILE" # Remove the last comma
