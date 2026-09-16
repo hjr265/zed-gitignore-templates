@@ -1,6 +1,6 @@
 id = "gitignore-templates"
 name = "Gitignore Templates"
-version = "2026.9.1"
+version = "2026.9.2"
 schema_version = 1
 authors = ["Mahmud Ridwan <m@hjr265.me>"]
 description = "Provides snippets of .gitignore templates from https://github.com/github/gitignore."
