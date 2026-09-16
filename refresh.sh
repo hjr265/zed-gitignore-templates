@@ -6,7 +6,7 @@ REPO_URL="https://github.com/github/gitignore.git"
 DIR_NAME="gitignore"
 
 TEMP_FILE="tmp.json"
-OUT_FILE="snippets/git ignore.json"
+OUT_FILE="snippets/gitignore.json"
 
 while getopts "l" opt; do
     case $opt in
